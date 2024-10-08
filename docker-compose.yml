@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  # Frontend (nginx)
+  frontend:
+    image: nginx:1.24.0-alpine
+    container_name: iba-frontend
+    volumes:
+      - ./iba-frontend-CSR/dist:/usr/share/nginx/html:ro
+      - ./iba-frontend-CSR/.nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - '80:80'
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
