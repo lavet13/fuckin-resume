@@ -103,8 +103,8 @@ const App = () => {
           {filteredRoutes.map(({ path, component: ReactComponent }) => (
             <Route key={path} path={path} element={<ReactComponent />} />
           ))}
+          <Route path='*' element={<NotFound />} />
         </Route>
-        <Route path='*' element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );

@@ -15,14 +15,14 @@ const SheetLink: FC<SheetLinkProps> = ({
   ...props
 }) => {
   return (
-    <SheetClose className="flex align-start w-full h-full">
+    <SheetClose className="flex w-full">
       <NavLink
         to={to}
         className={({ isActive }) =>
           cn(
-            'flex flex-1 transition-colors font-semibold pl-6 border-l -ml-px hover:text-foreground/80 hover:border-foreground/20 text-muted-foreground/60',
+            'w-full text-left transition-colors font-semibold pl-6 border-l -ml-px text-muted-foreground/60',
             isActive
-              && 'text-foreground border-foreground',
+              ? 'text-foreground border-foreground' : 'hover:text-foreground/80 hover:border-foreground/20',
             className,
           )
         }
@@ -32,23 +32,6 @@ const SheetLink: FC<SheetLinkProps> = ({
       </NavLink>
     </SheetClose>
   );
-
-{/* <SheetClose asChild> */}
-{/*   <Link */}
-{/*     to='/resume' */}
-{/*     className='transition-colors font-semibold hover:text-foreground/80 hover:border-foreground/20 text-muted-foreground/60 pl-6 border-l -ml-px' */}
-{/*   > */}
-{/*     Резюме */}
-{/*   </Link> */}
-{/* </SheetClose> */}
-{/* <SheetClose asChild> */}
-{/*   <Link */}
-{/*     to='/biography' */}
-{/*     className='transition-colors font-semibold text-foreground pl-6 border-l border-foreground -ml-px' */}
-{/*   > */}
-{/*     Биография */}
-{/*   </Link> */}
-{/* </SheetClose> */}
-};
+}
 
 export default SheetLink;

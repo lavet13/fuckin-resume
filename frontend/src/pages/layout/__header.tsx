@@ -90,56 +90,26 @@ const Header: FC = () => {
                 <SheetLink to='/resume'>
                   Резюме
                 </SheetLink>
-                <SheetClose asChild>
-                  <Link
-                    to='/biography'
-                    className='transition-colors font-semibold text-foreground pl-6 border-l border-foreground -ml-px'
-                  >
-                    Биография
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    to='/essay'
-                    className='transition-colors font-semibold hover:text-foreground/80 text-foreground/60 pl-6 border-l -ml-px'
-                  >
-                    Реферат
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    to='/lib'
-                    className='transition-colors font-semibold hover:text-foreground/80 text-foreground/60 pl-6 border-l -ml-px'
-                  >
-                    Библиотека
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    to='/source'
-                    className='transition-colors font-semibold hover:text-foreground/80 text-foreground/60 pl-6 border-l -ml-px'
-                  >
-                    Ссылки
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    to='/statistic-search'
-                    className='transition-colors font-semibold hover:text-foreground/80 text-foreground/60 pl-6 border-l -ml-px'
-                  >
-                    Отчет о поиске
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                <Link
-                  to='/self'
-                  className='transition-colors font-semibold hover:text-foreground/80 text-foreground/60 pl-6 border-l -ml-px'
-                >
+                <SheetLink to='/biography'>
+                  Биография
+                </SheetLink>
+                <SheetLink to='/essay'>
+                  Реферат
+                </SheetLink>
+                <SheetLink to='/lib'>
+                  Библиотека
+                </SheetLink>
+                <SheetLink to='/source'>
+                  Ссылки
+                </SheetLink>
+                <SheetLink to='/statistic-search'>
+                  Отчет о поиске
+                </SheetLink>
+                <SheetLink to='/self'>
                   Индивидуальный раздел
-                </Link>
-                </SheetClose>
+                </SheetLink>
               </nav>
-              <div className="flex items-start flex-col space-y-1 pt-6 mt-auto">
+              <div className="flex items-start flex-col space-y-1 pt-6 mt-auto pl-6">
                 <Button className="w-full justify-start align-start pl-0" variant='link' asChild>
                   <Link to='https://donntu.ru/' target='_blank'>
                     ДонНТУ
