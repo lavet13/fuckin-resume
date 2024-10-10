@@ -10,7 +10,7 @@ const Loadable =
   (
     Component: React.ComponentType,
     fallback = (
-      <div className='flex-1 flex items-center justify-center'>
+      <div className='flex-1 flex items-center justify-center min-h-screen'>
         <Loader2 className='h-8 w-8 animate-spin text-primary' />
       </div>
     ),
@@ -69,12 +69,12 @@ const routes = Object.keys(PagePathsWithComponents).map(path => {
   if (regularMatch) {
     const [, name] = regularMatch;
     const lowerName = name.toLowerCase();
-    const fallback = suspenseFallbackMap.get(lowerName) || undefined;
-
+    // const fallback = suspenseFallbackMap.get(lowerName) || undefined;
+    //
     return {
       name,
       path: lowerName === 'home' ? '/' : `/${lowerName}`,
-      component: Loadable(lazy(PagePathsWithComponents[path]), fallback),
+      component: Loadable(lazy(PagePathsWithComponents[path]), undefined),
     };
   }
 
@@ -103,8 +103,8 @@ const App = () => {
           {filteredRoutes.map(({ path, component: ReactComponent }) => (
             <Route key={path} path={path} element={<ReactComponent />} />
           ))}
-          <Route path='*' element={<NotFound />} />
         </Route>
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );
