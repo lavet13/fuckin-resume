@@ -4,7 +4,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { ScrollArea } from '@radix-ui/react-scroll-area';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
 import { Link, NavLink, NavLinkProps } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -37,7 +37,7 @@ const SheetLink: FC<SheetLinkProps> = ({
         )
       }
       onClick={() => {
-        onOpenChange?.(false);
+        onOpenChange(false);
       }}
       {...props}
     >
@@ -92,35 +92,37 @@ const MobileNav = () => {
             <span className='font-bold text-sm'>Skinder P.</span>
           </Link>
         </SheetClose>
-        <ScrollArea className='flex flex-col relative overflow-hidden my-4 h-[calc(100vh-8rem)] pb-10 pl-0'>
-          <nav className='flex flex-col space-y-3 border-l'>
-            <SheetLink onOpenChange={setOpen} to='/resume'>Резюме</SheetLink>
-            <SheetLink onOpenChange={setOpen} to='/biography'>Биография</SheetLink>
-            <SheetLink onOpenChange={setOpen} to='/essay'>Реферат</SheetLink>
-            <SheetLink onOpenChange={setOpen} to='/lib'>Библиотека</SheetLink>
-            <SheetLink onOpenChange={setOpen} to='/source'>Ссылки</SheetLink>
-            <SheetLink onOpenChange={setOpen} to='/statistic-search'>Отчет о поиске</SheetLink>
-            <SheetLink onOpenChange={setOpen} to='/self'>Индивидуальный раздел</SheetLink>
-          </nav>
-          <div className='flex items-start flex-col space-y-1 pt-6 mt-auto pl-6'>
-            <Button
-              className='w-full justify-start align-start pl-0'
-              variant='link'
-              asChild
-            >
-              <Link to='https://donntu.ru/' target='_blank'>
-                ДонНТУ
-              </Link>
-            </Button>
-            <Button
-              className='w-full justify-start pl-0'
-              variant='link'
-              asChild
-            >
-              <Link to='https://masters.donntu.ru/' target='_blank'>
-                Портал магистров
-              </Link>
-            </Button>
+        <ScrollArea className='my-4 h-[calc(100vh-8rem)] pb-10'>
+          <div className="flex flex-col h-full">
+            <nav className='flex flex-col space-y-3 border-l'>
+              <SheetLink onOpenChange={setOpen} to='/resume'>Резюме</SheetLink>
+              <SheetLink onOpenChange={setOpen} to='/biography'>Биография</SheetLink>
+              <SheetLink onOpenChange={setOpen} to='/essay'>Реферат</SheetLink>
+              <SheetLink onOpenChange={setOpen} to='/lib'>Библиотека</SheetLink>
+              <SheetLink onOpenChange={setOpen} to='/source'>Ссылки</SheetLink>
+              <SheetLink onOpenChange={setOpen} to='/statistic-search'>Отчет о поиске</SheetLink>
+              <SheetLink onOpenChange={setOpen} to='/self'>Индивидуальный раздел</SheetLink>
+            </nav>
+            <div className='flex flex-col items-start grow justify-end space-y-1 pt-6 pl-6'>
+              <Button
+                className='w-full justify-start pl-0'
+                variant='link'
+                asChild
+              >
+                <Link to='https://donntu.ru/' target='_blank'>
+                  ДонНТУ
+                </Link>
+              </Button>
+              <Button
+                className='w-full justify-start pl-0'
+                variant='link'
+                asChild
+              >
+                <Link to='https://masters.donntu.ru/' target='_blank'>
+                  Портал магистров
+                </Link>
+              </Button>
+            </div>
           </div>
         </ScrollArea>
       </SheetContent>

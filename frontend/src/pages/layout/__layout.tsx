@@ -5,9 +5,9 @@ import { Outlet } from 'react-router-dom';
 
 const Layout: FC = () => {
   return (
-    <div className='relative flex flex-col justify-between min-h-screen'>
+    <div className='relative flex flex-col'>
       <Header />
-      <main className='flex flex-col flex-1 border-b'>
+      <main className='flex flex-col grow shrink-0 border-b min-h-[calc(100vh-3.5rem)]'>
         <Outlet />
       </main>
       <Footer />
